@@ -3,9 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Semantic Tags Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        header, nav, section, article, aside, footer {
+            border: 1px solid black;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        nav a {
+            margin-right: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1> Home page</h1>
+    <header>
+        <h1>My Website</h1>
+        <p>Welcome to Semantic HTML Example</p>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav> 
+    <main> 
+        <section>
+            <h2>Section Tag</h2>
+            <p>This is a section of the webpage.</p>
+        </section>
+        <article>
+            <h2>Article Tag</h2>
+            <p>
+                This article contains independent content
+                like a blog post or news article.
+            </p>
+        </article> 
+        <aside>
+            <h3>Aside Tag</h3>
+            <p>
+                Sidebar content, ads, or related links go here.
+            </p>
+        </aside>
+    </main>
+    <footer>
+        <p>this the end</p>
+    </footer>
 </body>
 </html>
