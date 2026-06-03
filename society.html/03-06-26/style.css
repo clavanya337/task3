@@ -1,0 +1,20 @@
+.container{
+    height:100px;
+    width:200px;
+    background-color:aqua;
+    transition:background-color ease-in-out 0.5s;
+    border-radius: 10px solid grey;
+    position:relative;
+    transform:rotate(180);
+
+}
+.container:hover{
+    height:30px;
+    width:500px;
+    
+        background-color:yellow ;
+        border-radius:30px;
+        transform: rotate(90);
+    
+
+}

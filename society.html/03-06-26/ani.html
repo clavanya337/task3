@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        .container{
+            height:100px;
+            width:100px;
+            background-color: darkolivegreen;
+            animation-name: stop;
+            animation-duration: 7s;
+            animation-iteration-count: 3;
+            animation-timing-function: ease-in-out;
+            border-radius: 50px;
+            position:relative;
+
+
+        }
+        @keyframes stop{
+            0%{
+                background-color:rgb(3, 47, 3);
+                left:0px;top:0px;
+            }
+            25%{
+                background-color:rgb(7, 116, 7);
+                left:200px;top:0px;
+            }
+            50%{
+                background-color:rgb(34, 144, 34);
+                left:200px;top:200px;
+            }
+            75%{
+                background-color:rgb(60, 222, 60);
+                left:0px;top:200px;
+            }
+            100%{
+                background-color:rgb(130, 221, 130);
+                left:0px;top:0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class ="container">
+        <p> Animation</p>
+    </div>
+    
+</body>
+</html>
