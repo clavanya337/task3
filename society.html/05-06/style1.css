@@ -1,0 +1,18 @@
+nav a{
+    color:red;
+    text-decoration:none;
+    margin:10px
+    
+}
+h1{
+    font-weight: 100;
+    font-style: italic;
+    border-radius: 100px;
+    background-color:rgb(8, 237, 237);
+    margin:100px;
+    text-align: center;
+}
+button{
+    background-color: aqua;
+    text-align:center;
+}
