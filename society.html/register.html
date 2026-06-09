@@ -1,29 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+}
+
+.container{
+    width:600px;
+    margin:30px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    box-sizing:border-box;
+}
+
+.btn{
+    width:100%;
+    padding:10px;
+    background:green;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:darkgreen;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table,th,td{
+    border:1px solid #000;
+}
+
+th,td{
+    padding:10px;
+    text-align:left;
+}
+
+th{
+    background:#eaeaea;
+}
+</style>
 </head>
 <body>
-    <div="container">
-        <h1 text-align="center">Registration page</h1>
 
-<form>
-    <input type ="text" placeholder="Fullname" required>
-    <input type ="text" placeholder="Flat/House Number" required>
-    <input type ="email" placeholder="Email" required>
-    <input type ="tel" placeholder="Mobile Number" required>
-    <input type ="Password" placeholder="Password" required>
-    <input type ="Password" placeholder="Confirm Password" required>
-    <select>
-        <option>Owner</option>
-        <option>Tenant</option>
+<div class="container">
 
-    </select>
-    <button class="btn">Register</button>
+<h1>Registration Page</h1>
+
+<form id="regForm">
+
+<input type="text" id="fullname" placeholder="Full Name" required>
+
+<input type="text" id="house" placeholder="Flat/House Number" required>
+
+<input type="email" id="email" placeholder="Email" required>
+
+<input type="tel" id="mobile" placeholder="Mobile Number" required>
+
+<input type="password" id="password" placeholder="Password" required>
+
+<input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+<select id="role">
+    <option>Owner</option>
+    <option>Tenant</option>
+</select>
+
+<button type="submit" class="btn">Register</button>
+
 </form>
-    </div>
+
+<h2>User Details</h2>
+
+<table>
+<thead>
+<tr>
+<th>Full Name</th>
+<th>House No</th>
+<th>Email</th>
+<th>Mobile</th>
+<th>Role</th>
+</tr>
+</thead>
+
+<tbody id="userTable"></tbody>
+</table>
+
+</div>
+
+<script>
+
+function displayUser(){
+
+    const user =
+        JSON.parse(localStorage.getItem("userDetails"));
+
+    if(user){
+
+        document.getElementById("userTable").innerHTML = `
+        <tr>
+            <td>${user.fullname}</td>
+            <td>${user.house}</td>
+            <td>${user.email}</td>
+            <td>${user.mobile}</td>
+            <td>${user.role}</td>
+        </tr>
+        `;
+    }
+}
+
+document.getElementById("regForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const password =
+        document.getElementById("password").value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+    if(password !== confirmPassword){
+        alert("Passwords do not match");
+        return;
+    }
+
+    const user = {
+
+        fullname:
+            document.getElementById("fullname").value,
+
+        house:
+            document.getElementById("house").value,
+
+        email:
+            document.getElementById("email").value,
+
+        mobile:
+            document.getElementById("mobile").value,
+
+        role:
+            document.getElementById("role").value
+    };
+
+    localStorage.setItem(
+        "userDetails",
+        JSON.stringify(user)
+    );
+
+    displayUser();
+
+    alert("Registration Successful");
+
+    this.reset();
+});
+
+displayUser();
+
+</script>
+
 </body>
 </html>
