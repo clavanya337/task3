@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <h2>Promise in Console</h2>
+
+    <button onclick="checkPromise()">Run Promise</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checkPromise() {
+            const myPromise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Promise fulfilled!");
+                }, 2000);
+            });
+
+            console.log(myPromise); // Promise {<pending>}
+
+            myPromise.then(result => {
+                console.log(result); // Promise fulfilled!
+                document.getElementById("result").textContent = result;
+            });
+        }
+    </script>
+</body>
+</html>
